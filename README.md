@@ -42,6 +42,11 @@ Then configure the rules you want to use under the rules section.
 
 - import-order-aesthetic/order-import-by-length
 
+## Further Reading
+
+- https://eslint.org/docs/developer-guide/
+- https://astexplorer.net/
+
 ## Todo
 
 - Finish adding support for reverseOrder option
