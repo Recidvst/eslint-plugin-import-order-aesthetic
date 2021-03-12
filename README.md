@@ -22,9 +22,7 @@ Add `import-order-aesthetic` to the plugins section of your `.eslintrc` configur
 
 ```json
 {
-    "plugins": [
-        "import-order-aesthetic"
-    ]
+  "plugins": ["import-order-aesthetic"]
 }
 ```
 
@@ -32,9 +30,9 @@ Then configure the rules you want to use under the rules section.
 
 ```json
 {
-    "rules": {
-        "import-order-aesthetic/order-import-by-length": 2
-    }
+  "rules": {
+    "import-order-aesthetic/order-import-by-length": 2
+  }
 }
 ```
 
@@ -44,7 +42,6 @@ Then configure the rules you want to use under the rules section.
 
 ## Todo
 
-- Finish adding support for reverseOrder option
 - Add support for secondary alphabetisation sorting
 - Add support for `require` as well as `import`
 - Add code coverage tool
