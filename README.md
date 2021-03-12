@@ -1,3 +1,7 @@
+[![Travis (.com)](https://img.shields.io/travis/com/Recidvst/eslint-plugin-import-order-aesthetic.svg)](https://travis-ci.com/Recidvst/eslint-plugin-import-order-aesthetic)
+[![Coverage Status](https://coveralls.io/repos/github/Recidvst/eslint-plugin-import-order-aesthetic/badge.svg?branch=master)](https://coveralls.io/github/Recidvst/eslint-plugin-import-order-aesthetic?branch=master)
+[![license](https://img.shields.io/github/license/recidvst/eslint-plugin-import-order-aesthetic.svg)](https://github.com/Recidvst/eslint-plugin-import-order-aesthetic/blob/master/LICENSE)
+
 # eslint-plugin-import-order-aesthetic
 
 Forget alphabetical or chronological ordering, the future is in bringing aesthetic order to import statements.
