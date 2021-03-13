@@ -87,9 +87,9 @@ ruleTester.run("order-import-by-length", rule, {
   invalid: [
     // invalid because not in correct order (standard)
     {
-      code: `import { abc } from 'testing';\nimport { x } from 'test';\nimport { y } from 'tester';`,
+      code: `import { abc } from 'testing';\nimport { x } from 'test';\nimport { y } from 'btester';\nimport { z } from 'atester';`,
       options: ["always", { reverseOrder: false }],
-      output: `import { abc } from 'testing';\nimport { y } from 'tester';\nimport { x } from 'test';`,
+      output: `import { abc } from 'testing';\nimport { z } from 'atester';\nimport { y } from 'btester';\nimport { x } from 'test';`,
       errors: [
         {
           message: "Imports are not ordered aesthetically.",
@@ -97,7 +97,7 @@ ruleTester.run("order-import-by-length", rule, {
           suggestions: [
             {
               messageId: "orderImportsByLength",
-              output: `import { abc } from 'testing';\nimport { y } from 'tester';\nimport { x } from 'test';`,
+              output: `import { abc } from 'testing';\nimport { z } from 'atester';\nimport { y } from 'btester';\nimport { x } from 'test';`,
             },
           ],
         },
@@ -105,9 +105,9 @@ ruleTester.run("order-import-by-length", rule, {
     },
     // invalid because not in correct order (reversed)
     {
-      code: `import { x } from 'test';\nimport { abc } from 'testing';\nimport { y } from 'tester';`,
+      code: `import { x } from 'test';\nimport { abc } from 'testing';\nimport { z } from 'btester';\nimport { y } from 'atester';`,
       options: ["always", { reverseOrder: true }],
-      output: `import { x } from 'test';\nimport { y } from 'tester';\nimport { abc } from 'testing';`,
+      output: `import { x } from 'test';\nimport { y } from 'atester';\nimport { z } from 'btester';\nimport { abc } from 'testing';`,
       errors: [
         {
           message: "Imports are not ordered aesthetically.",
@@ -115,7 +115,7 @@ ruleTester.run("order-import-by-length", rule, {
           suggestions: [
             {
               messageId: "orderImportsByLength",
-              output: `import { x } from 'test';\nimport { y } from 'tester';\nimport { abc } from 'testing';`,
+              output: `import { x } from 'test';\nimport { y } from 'atester';\nimport { z } from 'btester';\nimport { abc } from 'testing';`,
             },
           ],
         },
@@ -152,6 +152,22 @@ ruleTester.run("order-import-by-length", rule, {
             {
               messageId: "orderImportsByLength",
               output: `import { x } from 'test';\nimport { y } from 'tester';\nimport { abc } from 'testing';\nimport { nulltest } from 'break-test';`,
+            },
+          ],
+        },
+      ],
+    },
+    // invalid because one array is empty
+    {
+      code: ``,
+      options: ["always", { reverseOrder: true }],
+      errors: [
+        {
+          message: "Imports are empty or otherwise invalid.",
+          suggestions: [
+            {
+              messageId: "orderImportsInvalid",
+              output: `valid import statement;`,
             },
           ],
         },

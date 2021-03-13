@@ -6,6 +6,8 @@
 
 Forget alphabetical or chronological ordering, the future is in bringing aesthetic order to import statements.
 
+*Not yet published as not fully tested.*
+
 ## Installation
 
 You'll first need to install [ESLint](http://eslint.org):
@@ -48,4 +50,6 @@ Then configure the rules you want to use under the rules section.
 
 ## Todo
 
-- Add support for secondary alphabetisation sorting
+- Finish testing and checking for edge cases
+- Publish v1.0.0 as an NPM package
+- Potentially refactor the validation logic to be more efficient

@@ -87,9 +87,9 @@ ruleTester.run("order-require-by-length", rule, {
   invalid: [
     // invalid because not in correct order (standard)
     {
-      code: `const a = require('testing');\nconst c = require('test');\nconst b = require('tester');`,
+      code: `const a = require('testing');\nconst c = require('test');\nconst e = require('btester');\nconst f = require('atester');`,
       options: ["always", { reverseOrder: false }],
-      output: `const a = require('testing');\nconst b = require('tester');\nconst c = require('test');`,
+      output: `const f = require('atester');\nconst e = require('btester');\nconst a = require('testing');\nconst c = require('test');`,
       errors: [
         {
           message: "Require statements are not ordered aesthetically.",
@@ -97,7 +97,7 @@ ruleTester.run("order-require-by-length", rule, {
           suggestions: [
             {
               messageId: "orderRequireByLength",
-              output: `const a = require('testing');\nconst b = require('tester');\nconst c = require('test');`,
+              output: `const f = require('atester');\nconst e = require('btester');\nconst a = require('testing');\nconst c = require('test');`,
             },
           ],
         },
@@ -105,9 +105,9 @@ ruleTester.run("order-require-by-length", rule, {
     },
     // invalid because not in correct order (reversed)
     {
-      code: `const a = require('testing');\nconst c = require('test');\nconst b = require('tester');`,
+      code: `const a = require('testing');\nconst c = require('test');\nconst f = require('btester');\nconst e = require('atester');`,
       options: ["always", { reverseOrder: true }],
-      output: `const c = require('test');\nconst b = require('tester');\nconst a = require('testing');`,
+      output: `const c = require('test');\nconst a = require('testing');\nconst e = require('atester');\nconst f = require('btester');`,
       errors: [
         {
           message: "Require statements are not ordered aesthetically.",
@@ -115,7 +115,7 @@ ruleTester.run("order-require-by-length", rule, {
           suggestions: [
             {
               messageId: "orderRequireByLength",
-              output: `const c = require('test');\nconst b = require('tester');\nconst a = require('testing');`,
+              output: `const c = require('test');\nconst a = require('testing');\nconst e = require('atester');\nconst f = require('btester');`,
             },
           ],
         },
@@ -152,6 +152,22 @@ ruleTester.run("order-require-by-length", rule, {
             {
               messageId: "orderRequireByLength",
               output: `const c = require('test');\nconst b = require('tester');\nconst a = require('testing');\nconst nulltest = require('break-test');`,
+            },
+          ],
+        },
+      ],
+    },
+    // invalid because one array is empty
+    {
+      code: ``,
+      options: ["always", { reverseOrder: true }],
+      errors: [
+        {
+          message: "Require statements are empty or otherwise invalid.",
+          suggestions: [
+            {
+              messageId: "orderRequireInvalid",
+              output: `valid require statement;`,
             },
           ],
         },
