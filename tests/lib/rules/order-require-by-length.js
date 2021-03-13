@@ -143,7 +143,7 @@ ruleTester.run("order-require-by-length", rule, {
     {
       code: `const nulltest = require('break-test');\nconst a = require('testing');\nconst c = require('test');\nconst b = require('tester');`,
       options: ["always", { reverseOrder: true }],
-      output: `const c = require('test');\nconst b = require('tester');\nconst a = require('testing');const nulltest = require('break-test');`,
+      output: `const c = require('test');\nconst b = require('tester');\nconst a = require('testing');\nconst nulltest = require('break-test');`,
       errors: [
         {
           message: "Require statements are not ordered aesthetically.",
