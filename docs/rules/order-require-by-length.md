@@ -5,23 +5,23 @@
 Examples of **correct** code for this rule:
 
 ```js
-const a = require('test');
-const b = require('tester');
-const c = require('testing');
+const a = require("test");
+const b = require("tester");
+const c = require("testing");
 ```
 
 ```js
-const c = require('testing');
-const b = require('tester');
-const a = require('test');
+const c = require("testing");
+const b = require("tester");
+const a = require("test");
 ```
 
 Examples of **incorrect** code for this rule:
 
 ```js
-const a = require('test');
-const c = require('testing');
-const b = require('tester');
+const a = require("test");
+const c = require("testing");
+const b = require("tester");
 ```
 
 ### Options
