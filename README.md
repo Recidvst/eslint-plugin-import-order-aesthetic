@@ -6,7 +6,7 @@
 
 Forget alphabetical or chronological ordering, the future is in bringing aesthetic order to import statements.
 
-*Not yet published as not fully tested.*
+_Not yet published as not fully tested._
 
 ## Installation
 
