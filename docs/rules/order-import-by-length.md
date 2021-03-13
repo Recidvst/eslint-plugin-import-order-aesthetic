@@ -5,23 +5,23 @@
 Examples of **correct** code for this rule:
 
 ```js
-import { x } from 'test';
-import { y } from 'tester';
-import { abc } from 'testing';
+import { x } from "test";
+import { y } from "tester";
+import { abc } from "testing";
 ```
 
 ```js
-import { abc } from 'testing';
-import { x } from 'tester';
-import { y } from 'test';
+import { abc } from "testing";
+import { x } from "tester";
+import { y } from "test";
 ```
 
 Examples of **incorrect** code for this rule:
 
 ```js
-import { x } from 'test';
-import { abc } from 'testing';
-import { y } from 'tester';
+import { x } from "test";
+import { abc } from "testing";
+import { y } from "tester";
 ```
 
 ### Options
@@ -34,7 +34,7 @@ The default behaviour of this rule is a 'top-heavy' order. Set `reverseOrder` to
 - true
 
 ```js
-'orderDirection': 'top-heavy'
+'reverseOrder': true
 ```
 
 ## When Not To Use It

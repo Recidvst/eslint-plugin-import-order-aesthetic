@@ -35,7 +35,8 @@ Then configure the rules you want to use under the rules section.
 ```json
 {
   "rules": {
-    "import-order-aesthetic/order-import-by-length": 2
+    "import-order-aesthetic/order-import-by-length": 2,
+    "import-order-aesthetic/order-require-by-length": 2
   }
 }
 ```
@@ -43,9 +44,8 @@ Then configure the rules you want to use under the rules section.
 ## Supported Rules
 
 - import-order-aesthetic/order-import-by-length
+- import-order-aesthetic/order-require-by-length
 
 ## Todo
 
 - Add support for secondary alphabetisation sorting
-- Add support for `require` as well as `import`
-- Add code coverage tool
