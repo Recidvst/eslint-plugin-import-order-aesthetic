@@ -60,6 +60,7 @@ typings/
 .npm
 
 # Optional eslint cache
+.eslintrc.js
 .eslintcache
 
 # Microbundle cache
