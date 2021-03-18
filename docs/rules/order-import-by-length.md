@@ -5,15 +5,15 @@
 Examples of **correct** code for this rule:
 
 ```js
-import { x } from "test";
-import { y } from "tester";
-import { abc } from "testing";
-```
-
-```js
 import { abc } from "testing";
 import { x } from "tester";
 import { y } from "test";
+```
+
+```js
+import { x } from "test";
+import { y } from "tester";
+import { abc } from "testing";
 ```
 
 Examples of **incorrect** code for this rule:
@@ -24,17 +24,17 @@ import { abc } from "testing";
 import { y } from "tester";
 ```
 
-### Options
+## Options
 
-#### reverseOrder
+### reverseOrder
 
 The default behaviour of this rule is a 'top-heavy' order. Set `reverseOrder` to `true` to use a 'bottom-heavy' order.
 
-- false (default)
-- true
+- `false` (default)
+- `true`
 
 ```js
-'reverseOrder': true
+"import-order-aesthetic/order-import-by-length": ['error', { reverseOrder: true }],
 ```
 
 ## When Not To Use It

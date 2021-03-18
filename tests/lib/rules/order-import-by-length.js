@@ -25,6 +25,30 @@ RuleTester.setDefaultConfig({
   },
 });
 
+class errorTemplate {
+  constructor(
+    message = "Import is not ordered aesthetically.",
+    messageId = "orderImportsByLength",
+    type = "ImportDeclaration"
+  ) {
+    this.message = message;
+    this.type = type;
+    this.suggestions = [
+      {
+        messageId: messageId,
+      },
+    ];
+  }
+
+  duplicate(number) {
+    return Array.from(Array(number), () => {
+      return Object.assign(new errorTemplate(), this);
+    });
+  }
+}
+
+const defaultError = new errorTemplate();
+
 var ruleTester = new RuleTester();
 ruleTester.run("order-import-by-length", rule, {
   valid: [
@@ -33,354 +57,61 @@ ruleTester.run("order-import-by-length", rule, {
       code: `import { abc } from 'testing';\nimport { y } from 'tester';\nimport { x } from 'test';`,
       options: [{ reverseOrder: false }],
       output: `import { abc } from 'testing';\nimport { y } from 'tester';\nimport { x } from 'test';`,
-      errors: [
-        {
-          message: "Imports are not ordered aesthetically.",
-          type: "ImportDeclaration",
-          suggestions: [
-            {
-              messageId: "orderImportsByLength",
-              output: `import { abc } from 'testing';\nimport { y } from 'tester';\nimport { x } from 'test';`,
-            },
-          ],
-        },
-        {
-          message: "Imports are not ordered aesthetically.",
-          type: "ImportDeclaration",
-          suggestions: [
-            {
-              messageId: "orderImportsByLength",
-              output: `import { abc } from 'testing';\nimport { y } from 'tester';\nimport { x } from 'test';`,
-            },
-          ],
-        },
-        {
-          message: "Imports are not ordered aesthetically.",
-          type: "ImportDeclaration",
-          suggestions: [
-            {
-              messageId: "orderImportsByLength",
-              output: `import { abc } from 'testing';\nimport { y } from 'tester';\nimport { x } from 'test';`,
-            },
-          ],
-        },
-        {
-          message: "Imports are not ordered aesthetically.",
-          type: "ImportDeclaration",
-          suggestions: [
-            {
-              messageId: "orderImportsByLength",
-              output: `import { abc } from 'testing';\nimport { y } from 'tester';\nimport { x } from 'test';`,
-            },
-          ],
-        },
-      ],
+      errors: [...defaultError.duplicate(3)],
     },
     // valid and in reversed order
     {
       code: `import { x } from 'test';\nimport { y } from 'tester';\nimport { abc } from 'testing';`,
       options: [{ reverseOrder: true }],
       output: `import { x } from 'test';\nimport { y } from 'tester';\nimport { abc } from 'testing';`,
-      errors: [
-        {
-          message: "Imports are not ordered aesthetically.",
-          type: "ImportDeclaration",
-          suggestions: [
-            {
-              messageId: "orderImportsByLength",
-              output: `import { x } from 'test';\nimport { y } from 'tester';\nimport { abc } from 'testing';`,
-            },
-          ],
-        },
-        {
-          message: "Imports are not ordered aesthetically.",
-          type: "ImportDeclaration",
-          suggestions: [
-            {
-              messageId: "orderImportsByLength",
-              output: `import { x } from 'test';\nimport { y } from 'tester';\nimport { abc } from 'testing';`,
-            },
-          ],
-        },
-        {
-          message: "Imports are not ordered aesthetically.",
-          type: "ImportDeclaration",
-          suggestions: [
-            {
-              messageId: "orderImportsByLength",
-              output: `import { x } from 'test';\nimport { y } from 'tester';\nimport { abc } from 'testing';`,
-            },
-          ],
-        },
-        {
-          message: "Imports are not ordered aesthetically.",
-          type: "ImportDeclaration",
-          suggestions: [
-            {
-              messageId: "orderImportsByLength",
-              output: `import { x } from 'test';\nimport { y } from 'tester';\nimport { abc } from 'testing';`,
-            },
-          ],
-        },
-      ],
+      errors: [...defaultError.duplicate(3)],
     },
     // valid when only one item
     {
       code: `import { x } from 'test';`,
       options: [{ reverseOrder: true }],
       output: `import { x } from 'test';`,
-      errors: [
-        {
-          message: "Imports are not ordered aesthetically.",
-          type: "ImportDeclaration",
-          suggestions: [
-            {
-              messageId: "orderImportsByLength",
-              output: `import { x } from 'test';`,
-            },
-          ],
-        },
-        {
-          message: "Imports are not ordered aesthetically.",
-          type: "ImportDeclaration",
-          suggestions: [
-            {
-              messageId: "orderImportsByLength",
-              output: `import { x } from 'test';`,
-            },
-          ],
-        },
-        {
-          message: "Imports are not ordered aesthetically.",
-          type: "ImportDeclaration",
-          suggestions: [
-            {
-              messageId: "orderImportsByLength",
-              output: `import { x } from 'test';`,
-            },
-          ],
-        },
-        {
-          message: "Imports are not ordered aesthetically.",
-          type: "ImportDeclaration",
-          suggestions: [
-            {
-              messageId: "orderImportsByLength",
-              output: `import { x } from 'test';`,
-            },
-          ],
-        },
-      ],
+      errors: [defaultError],
     },
   ],
 
   invalid: [
     // invalid because not in correct order (standard)
     {
-      code: `import { abc } from 'testing';\nimport { x } from 'test';\nimport { y } from 'btester';\nimport { z } from 'atester';`,
+      code: `import { abc } from 'testing';\nimport { x } from 'test';\nimport { y } from 'atester';\nimport { z } from 'btester';`,
+      output: `import { abc } from 'testing';\nimport { z } from 'btester';\nimport { y } from 'atester';\nimport { x } from 'test';`,
       options: [{ reverseOrder: false }],
-      output: `import { abc } from 'testing';\nimport { z } from 'atester';\nimport { y } from 'btester';\nimport { x } from 'test';`,
-      errors: [
-        {
-          message: "Imports are not ordered aesthetically.",
-          type: "ImportDeclaration",
-          suggestions: [
-            {
-              messageId: "orderImportsByLength",
-              output: `import { abc } from 'testing';\nimport { z } from 'atester';\nimport { y } from 'btester';\nimport { x } from 'test';`,
-            },
-          ],
-        },
-        {
-          message: "Imports are not ordered aesthetically.",
-          type: "ImportDeclaration",
-          suggestions: [
-            {
-              messageId: "orderImportsByLength",
-              output: `import { abc } from 'testing';\nimport { z } from 'atester';\nimport { y } from 'btester';\nimport { x } from 'test';`,
-            },
-          ],
-        },
-        {
-          message: "Imports are not ordered aesthetically.",
-          type: "ImportDeclaration",
-          suggestions: [
-            {
-              messageId: "orderImportsByLength",
-              output: `import { abc } from 'testing';\nimport { z } from 'atester';\nimport { y } from 'btester';\nimport { x } from 'test';`,
-            },
-          ],
-        },
-        {
-          message: "Imports are not ordered aesthetically.",
-          type: "ImportDeclaration",
-          suggestions: [
-            {
-              messageId: "orderImportsByLength",
-              output: `import { abc } from 'testing';\nimport { z } from 'atester';\nimport { y } from 'btester';\nimport { x } from 'test';`,
-            },
-          ],
-        },
-      ],
+      errors: [...defaultError.duplicate(4)],
     },
     // invalid because not in correct order (reversed)
     {
       code: `import { x } from 'test';\nimport { abc } from 'testing';\nimport { z } from 'btester';\nimport { y } from 'atester';`,
       options: [{ reverseOrder: true }],
       output: `import { x } from 'test';\nimport { y } from 'atester';\nimport { z } from 'btester';\nimport { abc } from 'testing';`,
-      errors: [
-        {
-          message: "Imports are not ordered aesthetically.",
-          type: "ImportDeclaration",
-          suggestions: [
-            {
-              messageId: "orderImportsByLength",
-              output: `import { x } from 'test';\nimport { y } from 'atester';\nimport { z } from 'btester';\nimport { abc } from 'testing';`,
-            },
-          ],
-        },
-        {
-          message: "Imports are not ordered aesthetically.",
-          type: "ImportDeclaration",
-          suggestions: [
-            {
-              messageId: "orderImportsByLength",
-              output: `import { x } from 'test';\nimport { y } from 'atester';\nimport { z } from 'btester';\nimport { abc } from 'testing';`,
-            },
-          ],
-        },
-        {
-          message: "Imports are not ordered aesthetically.",
-          type: "ImportDeclaration",
-          suggestions: [
-            {
-              messageId: "orderImportsByLength",
-              output: `import { x } from 'test';\nimport { y } from 'atester';\nimport { z } from 'btester';\nimport { abc } from 'testing';`,
-            },
-          ],
-        },
-        {
-          message: "Imports are not ordered aesthetically.",
-          type: "ImportDeclaration",
-          suggestions: [
-            {
-              messageId: "orderImportsByLength",
-              output: `import { x } from 'test';\nimport { y } from 'atester';\nimport { z } from 'btester';\nimport { abc } from 'testing';`,
-            },
-          ],
-        },
-      ],
-    },
-    // invalid because arrays are different lengths
-    {
-      code: `import { lengthtest } from 'break-test';\nimport { x } from 'test';\nimport { abc } from 'testing';\nimport { y } from 'tester';`,
-      options: [{ reverseOrder: true }],
-      output: `import { x } from 'test';\nimport { y } from 'tester';\nimport { abc } from 'testing';\nimport { lengthtest } from 'break-test';`,
-      errors: [
-        {
-          message: "Imports are not ordered aesthetically.",
-          type: "ImportDeclaration",
-          suggestions: [
-            {
-              messageId: "orderImportsByLength",
-              output: `import { x } from 'test';\nimport { y } from 'tester';\nimport { abc } from 'testing';\nimport { lengthtest } from 'break-test';`,
-            },
-          ],
-        },
-        {
-          message: "Imports are not ordered aesthetically.",
-          type: "ImportDeclaration",
-          suggestions: [
-            {
-              messageId: "orderImportsByLength",
-              output: `import { x } from 'test';\nimport { y } from 'tester';\nimport { abc } from 'testing';\nimport { lengthtest } from 'break-test';`,
-            },
-          ],
-        },
-        {
-          message: "Imports are not ordered aesthetically.",
-          type: "ImportDeclaration",
-          suggestions: [
-            {
-              messageId: "orderImportsByLength",
-              output: `import { x } from 'test';\nimport { y } from 'tester';\nimport { abc } from 'testing';\nimport { lengthtest } from 'break-test';`,
-            },
-          ],
-        },
-        {
-          message: "Imports are not ordered aesthetically.",
-          type: "ImportDeclaration",
-          suggestions: [
-            {
-              messageId: "orderImportsByLength",
-              output: `import { x } from 'test';\nimport { y } from 'tester';\nimport { abc } from 'testing';\nimport { lengthtest } from 'break-test';`,
-            },
-          ],
-        },
-      ],
+      errors: [...defaultError.duplicate(4)],
     },
     // invalid because one array is null
     {
       code: `import { nulltest } from 'break-test';\nimport { x } from 'test';\nimport { abc } from 'testing';\nimport { y } from 'tester';`,
       options: [{ reverseOrder: true }],
-      output: `import { x } from 'test';\nimport { y } from 'tester';\nimport { abc } from 'testing';\nimport { nulltest } from 'break-test';`,
       errors: [
-        {
-          message: "Imports are not ordered aesthetically.",
-          type: "ImportDeclaration",
-          suggestions: [
-            {
-              messageId: "orderImportsByLength",
-              output: `import { x } from 'test';\nimport { y } from 'tester';\nimport { abc } from 'testing';\nimport { nulltest } from 'break-test';`,
-            },
-          ],
-        },
-        {
-          message: "Imports are not ordered aesthetically.",
-          type: "ImportDeclaration",
-          suggestions: [
-            {
-              messageId: "orderImportsByLength",
-              output: `import { x } from 'test';\nimport { y } from 'tester';\nimport { abc } from 'testing';\nimport { nulltest } from 'break-test';`,
-            },
-          ],
-        },
-        {
-          message: "Imports are not ordered aesthetically.",
-          type: "ImportDeclaration",
-          suggestions: [
-            {
-              messageId: "orderImportsByLength",
-              output: `import { x } from 'test';\nimport { y } from 'tester';\nimport { abc } from 'testing';\nimport { nulltest } from 'break-test';`,
-            },
-          ],
-        },
-        {
-          message: "Imports are not ordered aesthetically.",
-          type: "ImportDeclaration",
-          suggestions: [
-            {
-              messageId: "orderImportsByLength",
-              output: `import { x } from 'test';\nimport { y } from 'tester';\nimport { abc } from 'testing';\nimport { nulltest } from 'break-test';`,
-            },
-          ],
-        },
+        new errorTemplate(
+          "Import is empty or otherwise invalid.",
+          "orderImportsInvalid",
+          "Program"
+        ),
       ],
     },
-    // invalid because one array is empty
+    // invalid because one code is not an import
     {
-      code: ``,
+      code: `import { invalid } from 'break-test';`,
       options: [{ reverseOrder: true }],
       errors: [
-        {
-          message: "Imports are empty or otherwise invalid.",
-          suggestions: [
-            {
-              messageId: "orderImportsInvalid",
-              output: `valid import statement;`,
-            },
-          ],
-        },
+        new errorTemplate(
+          "Import is empty or otherwise invalid.",
+          "orderImportsInvalid",
+          "ImportDeclaration"
+        ),
       ],
     },
   ],
