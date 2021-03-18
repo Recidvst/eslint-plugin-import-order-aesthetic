@@ -79,8 +79,8 @@ ruleTester.run("order-import-by-length", rule, {
     // invalid because not in correct order (standard)
     {
       code: `import { abc } from 'testing';\nimport { x } from 'test';\nimport { y } from 'atester';\nimport { z } from 'btester';`,
-      output: `import { abc } from 'testing';\nimport { z } from 'btester';\nimport { y } from 'atester';\nimport { x } from 'test';`,
       options: [{ reverseOrder: false }],
+      output: `import { abc } from 'testing';\nimport { z } from 'btester';\nimport { y } from 'atester';\nimport { x } from 'test';`,
       errors: [...defaultError.duplicate(4)],
     },
     // invalid because not in correct order (reversed)
