@@ -10,8 +10,6 @@
 
 Forget alphabetical or chronological ordering, the future is in bringing aesthetic order to import and require statements.
 
-_Not yet published as not fully tested._
-
 ## Installation
 
 You'll first need to install [ESLint](http://eslint.org):
@@ -91,7 +89,9 @@ module.exports = {
 };
 ```
 
-Using `--fix` with your `eslint` command will auto-arrange your import/require statements
+Using `--fix` with your `eslint` command will auto-arrange your import/require statements.
+
+The fix functionality should work automatically with ESLint extensions in your code editor if you have it configured to fix on save etc.
 
 ---
 
@@ -156,5 +156,6 @@ If you want to order your require statements by something sensible... :)
 
 ## Roadmap
 
+- Debug potential issue with auto-fixing require statements when using the VSCode ESLint extension - imports work fine.
 - Add support for mixed import & require statements
 - Potentially refactor the validation logic to be more efficient

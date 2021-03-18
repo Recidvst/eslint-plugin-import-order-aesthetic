@@ -25,7 +25,10 @@
   "scripts": {
     "prettier:fix": "npx prettier . --write",
     "test": "cross-env NODE_ENV='testing' nyc mocha tests --recursive",
-    "coverage": "cross-env NODE_ENV='testing' nyc report --reporter=text-lcov | coveralls"
+    "coverage": "cross-env NODE_ENV='testing' nyc report --reporter=text-lcov | coveralls",
+    "package:pack": "npm pack",
+    "package:minor": "npm version minor",
+    "package:patch": "npm version patch"
   },
   "husky": {
     "hooks": {
