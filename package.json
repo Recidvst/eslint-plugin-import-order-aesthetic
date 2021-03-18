@@ -1,20 +1,25 @@
 {
   "name": "eslint-plugin-import-order-aesthetic",
-  "version": "0.0.0",
-  "description": "Forget alphabetical or chronological ordering, the future is in bringing aesthetic order to import statements.",
+  "version": "1.0.0",
+  "description": "Forget alphabetical or chronological ordering, the future is in bringing aesthetic order to import and require statements.",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/Recidvst/eslint-plugin-import-order-aesthetic.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Recidvst/eslint-plugin-import-order-aesthetic/issues"
   },
   "homepage": "https://github.com/Recidvst/eslint-plugin-import-order-aesthetic#readme",
   "author": "Chris Snowden <cdsnowden@gmail.com>",
   "license": "MIT",
   "keywords": [
     "js",
+    "javascript",
     "linting",
     "eslint",
     "eslintplugin",
-    "eslint-plugin"
+    "eslint-plugin",
+    "npm"
   ],
   "main": "lib/index.js",
   "scripts": {

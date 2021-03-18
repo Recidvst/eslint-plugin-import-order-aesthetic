@@ -1,0 +1,47 @@
+# setup
+package-lock.json
+.eslintrc
+.eslintrc.js
+.babelrc
+.editorconfig
+.prettierignore
+.travis.yml
+.coveralls.yml
+.gitignore
+
+# dev
+favicon.ico
+
+# tests
+test/
+tests/
+coverage
+coverage/
+.nyc_output
+tests_output
+tests_output/
+chromedriver.log
+geckodriver.log
+tests_output/
+lib/
+.nyc_output
+.cache
+
+.env
+
+bower_components
+node_modules
+node_modules/
+
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log
+yarn-error.log*
+
+/.DS_Store
+.DS_Store
+Thumbs.db
+
+_redirects

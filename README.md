@@ -1,12 +1,14 @@
 # eslint-plugin-import-order-aesthetic
 
+[![npm](https://img.shields.io/npm/dt/eslint-plugin-import-order-aesthetic.svg)](https://www.npmjs.com/package/eslint-plugin-import-order-aesthetic)
+[![npm](https://img.shields.io/npm/v/eslint-plugin-import-order-aesthetic.svg)](https://www.npmjs.com/package/eslint-plugin-import-order-aesthetic)
 [![Travis (.com)](https://img.shields.io/travis/com/Recidvst/eslint-plugin-import-order-aesthetic.svg)](https://travis-ci.com/Recidvst/eslint-plugin-import-order-aesthetic)
 [![Coverage Status](https://coveralls.io/repos/github/Recidvst/eslint-plugin-import-order-aesthetic/badge.svg?branch=master)](https://coveralls.io/github/Recidvst/eslint-plugin-import-order-aesthetic?branch=master)
 [![license](https://img.shields.io/github/license/recidvst/eslint-plugin-import-order-aesthetic.svg)](https://github.com/Recidvst/eslint-plugin-import-order-aesthetic/blob/master/LICENSE)
 
 ---
 
-Forget alphabetical or chronological ordering, the future is in bringing aesthetic order to import statements.
+Forget alphabetical or chronological ordering, the future is in bringing aesthetic order to import and require statements.
 
 _Not yet published as not fully tested._
 
@@ -97,11 +99,11 @@ Using `--fix` with your `eslint` command will auto-arrange your import/require s
 
 ### `order-import-by-length`
 
-Organise import statements aesthetically by ordering them according to line length.
+Organise import statements aesthetically by ordering them according to line length and then alphabetically.
 
 ### `order-require-by-length`
 
-Organise require statements aesthetically by ordering them according to line length.
+Organise require statements aesthetically by ordering them according to line length and then alphabetically.
 
 ---
 
@@ -154,9 +156,5 @@ If you want to order your require statements by something sensible... :)
 
 ## Roadmap
 
-- Fix bug with null/empty array tests
-- Finish testing and checking for edge cases
-- Tidy up test files to avoid code duplication
-- Publish v1.0.0 as an NPM package
 - Add support for mixed import & require statements
 - Potentially refactor the validation logic to be more efficient
