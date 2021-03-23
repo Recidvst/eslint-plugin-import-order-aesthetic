@@ -150,12 +150,12 @@ This is on the roadmap, PRs welcome.
 
 ## When Not To Use It
 
-If you want to order your require statements by something sensible... :)
+If you want to order your import/require statements by something sensible... :)
 
 ---
 
 ## Roadmap
 
-- Debug potential issue with auto-fixing require statements when using the VSCode ESLint extension - imports work fine.
-- Add support for mixed import & require statements
-- Potentially refactor the validation logic to be more efficient
+1. Add missing support for require statements used without assiging to a variable e.g. `require('hello').config();` `(ExpressionStatement)`.
+2. Debug potential issue with auto-fixing require statements when using the VSCode ESLint extension - imports work fine.
+3. Add support for mixed import & require statement.
