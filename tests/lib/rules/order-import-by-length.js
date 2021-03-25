@@ -56,21 +56,18 @@ ruleTester.run("order-import-by-length", rule, {
     {
       code: `import { abc } from 'testing';\nimport { y } from 'tester';\nimport { x } from 'test';`,
       options: [{ reverseOrder: false }],
-      output: `import { abc } from 'testing';\nimport { y } from 'tester';\nimport { x } from 'test';`,
       errors: [...defaultError.duplicate(3)],
     },
     // valid and in reversed order
     {
       code: `import { x } from 'test';\nimport { y } from 'tester';\nimport { abc } from 'testing';`,
       options: [{ reverseOrder: true }],
-      output: `import { x } from 'test';\nimport { y } from 'tester';\nimport { abc } from 'testing';`,
       errors: [...defaultError.duplicate(3)],
     },
     // valid when only one item
     {
       code: `import { x } from 'test';`,
       options: [{ reverseOrder: true }],
-      output: `import { x } from 'test';`,
       errors: [defaultError],
     },
   ],

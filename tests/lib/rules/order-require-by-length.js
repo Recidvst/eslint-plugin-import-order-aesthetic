@@ -54,23 +54,20 @@ ruleTester.run("order-require-by-length", rule, {
   valid: [
     // valid and in standard order
     {
-      code: `const a = require('testing');\nconst b = require('tester');\nconst c = require('test');`,
+      code: `const a = require('testing');\nconst b = require('tester');\nconst c = require('test');\nrequire('hello').config();\nrequire('hello');`,
       options: [{ reverseOrder: false }],
-      output: `const a = require('testing');\nconst b = require('tester');\nconst c = require('test');`,
-      errors: [...defaultError.duplicate(3)],
+      errors: [...defaultError.duplicate(5)],
     },
     // valid and in reversed order
     {
       code: `const c = require('test');\nconst b = require('tester');\nconst a = require('testing');`,
       options: [{ reverseOrder: true }],
-      output: `const c = require('test');\nconst b = require('tester');\nconst a = require('testing');`,
       errors: [...defaultError.duplicate(3)],
     },
     // valid when only one item
     {
       code: `const c = require('test');`,
       options: [{ reverseOrder: true }],
-      output: `const c = require('test');`,
       errors: [defaultError],
     },
   ],
@@ -111,6 +108,17 @@ ruleTester.run("order-require-by-length", rule, {
           `Require statement is empty or otherwise invalid.`,
           `orderRequireInvalid`,
           `VariableDeclaration`
+        ),
+      ],
+    },
+    {
+      code: `require('break-test');`,
+      options: [{ reverseOrder: true }],
+      errors: [
+        new errorTemplate(
+          `Require statement is empty or otherwise invalid.`,
+          `orderRequireInvalid`,
+          `ExpressionStatement`
         ),
       ],
     },

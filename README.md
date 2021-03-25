@@ -128,11 +128,13 @@ Default:
 const c = require("testing");
 const b = require("tester");
 const a = require("test");
+require("test");
 ```
 
 Reversed:
 
 ```js
+require("test");
 const a = require("test");
 const b = require("tester");
 const c = require("testing");
@@ -156,6 +158,5 @@ If you want to order your import/require statements by something sensible... :)
 
 ## Roadmap
 
-1. Add missing support for require statements used without assiging to a variable e.g. `require('hello').config();` `(ExpressionStatement)`.
-2. Debug potential issue with auto-fixing require statements when using the VSCode ESLint extension - imports work fine.
-3. Add support for mixed import & require statement.
+1. Debug potential issue with auto-fixing require statements when using the VSCode ESLint extension - imports work fine.
+2. Add support for mixed import & require statement.
