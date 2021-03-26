@@ -160,3 +160,4 @@ If you want to order your import/require statements by something sensible... :)
 
 1. Debug potential issue with auto-fixing require statements when using the VSCode ESLint extension - imports work fine.
 2. Add support for mixed import & require statement.
+3. Potentially improve the ExpressionStatement type validation.
