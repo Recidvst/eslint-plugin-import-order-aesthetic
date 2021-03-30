@@ -159,5 +159,6 @@ If you want to order your import/require statements by something sensible... :)
 ## Roadmap
 
 1. Debug potential issue with auto-fixing require statements when using the VSCode ESLint extension - imports work fine.
-2. Add support for mixed import & require statement.
-3. Potentially improve the ExpressionStatement type validation.
+2. Review possible bug with un-named imports e.g. `import '../styles/main.scss';`.
+3. Add support for mixed import & require statement.
+4. Potentially improve the ExpressionStatement type validation.
