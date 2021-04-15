@@ -70,6 +70,12 @@ ruleTester.run("order-import-by-length", rule, {
       options: [{ reverseOrder: true }],
       errors: [defaultError],
     },
+    // valid unassigned import
+    {
+      code: `import '../styles/main.scss';`,
+      options: [{ reverseOrder: true }],
+      errors: [defaultError],
+    },
   ],
 
   invalid: [
@@ -86,6 +92,13 @@ ruleTester.run("order-import-by-length", rule, {
       options: [{ reverseOrder: true }],
       output: `import { x } from 'test';\nimport { y } from 'atester';\nimport { z } from 'btester';\nimport { abc } from 'testing';`,
       errors: [...defaultError.duplicate(4)],
+    },
+    // invalid because not in correct order - unassigned import (standard)
+    {
+      code: `import '../styles/main.scss';\nimport { abc } from 'testing';`,
+      options: [{ reverseOrder: false }],
+      output: `import { abc } from 'testing';\nimport '../styles/main.scss';`,
+      errors: [...defaultError.duplicate(2)],
     },
     // invalid because one array is null
     {
