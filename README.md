@@ -25,6 +25,8 @@ Next, install `eslint-plugin-import-order-aesthetic`:
 npm install eslint-plugin-import-order-aesthetic --save-dev
 ```
 
+[View the package on NPM](https://www.npmjs.com/package/eslint-plugin-import-order-aesthetic "View the package on NPM")
+
 ---
 
 ## Requirements
