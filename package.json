@@ -1,6 +1,6 @@
 {
   "name": "eslint-plugin-import-order-aesthetic",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "Forget alphabetical or chronological ordering, the future is in bringing aesthetic order to import and require statements.",
   "repository": {
     "type": "git",
