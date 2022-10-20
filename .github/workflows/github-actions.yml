@@ -8,10 +8,6 @@ on:
 
   workflow_dispatch:
 
-branches:
-  only:
-    - master
-
 jobs:
   coverage:
     runs-on: ubuntu-latest
