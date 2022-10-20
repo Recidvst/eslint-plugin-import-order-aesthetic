@@ -22,8 +22,13 @@ jobs:
       - name: Install dependencies
         run: "npm i"
 
+      - name: Test
+        id: "test"
+        run: "npm run test"
+
       - name: Generate coverage
         id: "coverage"
+        if: steps.test.outcome == 'success'
         run: "npm run coverage"
 
       - name: Publish to coveralls.io
