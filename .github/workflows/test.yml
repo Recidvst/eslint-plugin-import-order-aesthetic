@@ -1,4 +1,4 @@
-name: Test app and publish code coverage
+name: Tests
 
 on:
   push:
@@ -25,14 +25,3 @@ jobs:
       - name: Test
         id: "test"
         run: "npm run test"
-
-      - name: Generate coverage
-        id: "coverage"
-        if: steps.test.outcome == 'success'
-        run: "npm run coverage"
-
-      - name: Publish to coveralls.io
-        if: steps.coverage.outcome == 'success'
-        uses: coverallsapp/github-action@v1.1.2
-        with:
-          github-token: ${{ secrets.COVERALLS_TOKEN }}

@@ -1,7 +1,7 @@
 # eslint-plugin-import-order-aesthetic
 
 [![npm](https://img.shields.io/npm/dt/eslint-plugin-import-order-aesthetic.svg)](https://www.npmjs.com/package/eslint-plugin-import-order-aesthetic)
-[![Travis (.com)](https://img.shields.io/travis/com/Recidvst/eslint-plugin-import-order-aesthetic.svg)](https://travis-ci.com/Recidvst/eslint-plugin-import-order-aesthetic)
+![Tests](https://github.com/Recidvst/eslint-plugin-import-order-aesthetic/actions/workflows/test.yml/badge.svg?branch=master)
 [![Coverage Status](https://coveralls.io/repos/github/Recidvst/eslint-plugin-import-order-aesthetic/badge.svg?branch=master)](https://coveralls.io/github/Recidvst/eslint-plugin-import-order-aesthetic?branch=master)
 [![npm](https://img.shields.io/npm/v/eslint-plugin-import-order-aesthetic.svg)](https://www.npmjs.com/package/eslint-plugin-import-order-aesthetic)
 [![releasedate](https://img.shields.io/github/release-date/Recidvst/eslint-plugin-import-order-aesthetic)](https://github.com/Recidvst/eslint-plugin-import-order-aesthetic/releases)
