@@ -29,7 +29,7 @@ class errorTemplate {
   constructor(
     message = "Require statement is not ordered aesthetically.",
     messageId = "orderRequireByLength",
-    type = "VariableDeclaration"
+    type = "VariableDeclaration",
   ) {
     this.message = message;
     this.type = type;
@@ -95,7 +95,7 @@ ruleTester.run("order-require-by-length", rule, {
         new errorTemplate(
           "Require statement is empty or otherwise invalid.",
           "orderRequireInvalid",
-          "Program"
+          "Program",
         ),
       ],
     },
@@ -107,7 +107,7 @@ ruleTester.run("order-require-by-length", rule, {
         new errorTemplate(
           `Require statement is empty or otherwise invalid.`,
           `orderRequireInvalid`,
-          `VariableDeclaration`
+          `VariableDeclaration`,
         ),
       ],
     },
@@ -118,7 +118,7 @@ ruleTester.run("order-require-by-length", rule, {
         new errorTemplate(
           `Require statement is empty or otherwise invalid.`,
           `orderRequireInvalid`,
-          `ExpressionStatement`
+          `ExpressionStatement`,
         ),
       ],
     },

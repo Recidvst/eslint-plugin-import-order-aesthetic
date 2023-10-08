@@ -29,7 +29,7 @@ class errorTemplate {
   constructor(
     message = "Import is not ordered aesthetically.",
     messageId = "orderImportsByLength",
-    type = "ImportDeclaration"
+    type = "ImportDeclaration",
   ) {
     this.message = message;
     this.type = type;
@@ -108,7 +108,7 @@ ruleTester.run("order-import-by-length", rule, {
         new errorTemplate(
           "Import is empty or otherwise invalid.",
           "orderImportsInvalid",
-          "Program"
+          "Program",
         ),
       ],
     },
@@ -120,7 +120,7 @@ ruleTester.run("order-import-by-length", rule, {
         new errorTemplate(
           "Import is empty or otherwise invalid.",
           "orderImportsInvalid",
-          "ImportDeclaration"
+          "ImportDeclaration",
         ),
       ],
     },
