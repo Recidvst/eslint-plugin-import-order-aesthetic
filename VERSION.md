@@ -5,3 +5,4 @@
 1.0.4: Add missing suppport for unassigned import statements  
 1.0.5: Update dependencies  
 1.0.6: Update dependencies  
+1.0.7: Remove config files from package
